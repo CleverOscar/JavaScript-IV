@@ -29,6 +29,14 @@ class Instructor extends Person {
   grade(student,subject){
     return `${student} receives a perfect score on ${subject}`
   };
+  graded(student,grade){
+
+    if (grade >= 70) {
+      return `Congrats ${student} you graduated!`
+    } else {
+        return `Sorry you have to retake this course.`
+    }
+  }
 }
 
 //  === Student CONSTRUCTOR ===
@@ -38,6 +46,7 @@ class Student extends Instructor {
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
+    this.grade = obj.grade;
   }
   // Methods
   listsSubjects(){
@@ -71,12 +80,6 @@ class Projectm extends Student {
 
 
 // New objects created
-const fred = new Person({
-  name: 'Fred',
-  location: 'Bedrock',
-  gender: 'Male',
-  age: 30
-})
 
 const liz_B = new Projectm({
   name: "Lizzy B",
@@ -88,10 +91,41 @@ const liz_B = new Projectm({
   favSubjects: ["CSS","React","Ternaries","SQL","Node"],
 })
 
+const christian_ipanaque = new Student({
+  name: "Christian Ipanaque",
+  age: 32,
+  gender: "Male",
+  location: "Seattle, WA",
+  previousBackground: "Server Hardware Technician",
+  className: "WEB18",
+  favSubjects: ["Computer Science","Redux","Algorithms","Data Structures","Computer Architecture"],
+})
+
+const leslie_t = new Student({
+  name: "Leslie Thompson",
+  age: 31,
+  location: "San Francisco, CA",
+  gender: "F",
+  previousBackground: "Retail Management",
+  className: "Web18",
+  favSubjects: ["CSS", "JavaScript", "Cooking", "Biology"]
+});
+
+const scubaSteve = new Projectm({
+  name: "Steve Lanier",
+  age: 29,
+  gender: "Male",
+  location: "Portland, OR",
+  previousBackground: "Jack of all trades",
+  className: "WEB18",
+  favSubjects: ["The ladies",,"Barbershop Quartets","Sleeping","Weekend parties","Weekday parties","Saving the world before bedtime"],
+  catchPhrase: "PC load-letter? The f*** does that mean?"
+})
+
 
 // checking objects, remove commets to check code
-// console.log(fred.speak());
-console.log(liz_B.debugCode('Oscar','Python'));
+console.log(liz_B.graded('Oscar',80));
+console.log(scubaSteve.PRAssignment('Javascript'))
 
 
 
